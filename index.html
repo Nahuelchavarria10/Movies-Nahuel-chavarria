@@ -7,48 +7,54 @@
     <meta name="description" content="website-movies">
     <link rel="shortcut icon" href="./assets/images/Moviestack_favicon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>MoviesStack</title>
+    <title>MovieStack</title>
 </head>
 
 <body>
 
 
-    <div class="flex flex-col h-screen m-auto text-white">
+    <div class="flex flex-col lg:w-max-[1440px] h-screen m-auto text-white">
         <header class="flex justify-center sm:justify-evenly md:justify-between md:px-20 h-[100px] bg-gray-950">
-            
-            <div class="w-20 h-20">
-                <img src="./assets/images/Moviestack_isotipo.png" alt="" class="w-20 h-20">
-            </div>
-            
 
-            <div class="flex items-center">
-                <nav class="">
+            <div class="w-20 h-20">
+                <a href="#"><img src="./assets/images/Moviestack_isotipo.png" alt="" class="w-20 h-20"></a>
+            </div>
+
+
+            
+                <nav class="flex items-center">
                     <ul class="flex">
                         <li class="">
-                            <a href="#" class="border-2 border-zinc-50 text-purple-500 p-3 text-lg">HOME</a>
+                            <a href="#" class="border-2 rounded-md border-purple-900 text-purple-500 p-3 text-lg">HOME</a>
                         </li>
                         <li class="">
                             <a href="movies.html" class="p-3 text-lg">MOVIES</a>
                         </li>
                         <li class="">
-                            <a href="#" class="p-3 text-lg">FAVS</a>
+                            <a href="favs.html" class="p-3 text-lg">FAVS</a>
                         </li>
                     </ul>
                 </nav>
-            </div>
+            
 
 
         </header>
-        <main class="flex flex-col lg:flex-col grow bg-gray-900 h-5/6">
+        <main class="flex flex-col lg:flex-col bg-gray-900 h-5/6">
 
-            <div class="h-4/5">
-                <a href="movies.html"><img src="https://media.istockphoto.com/id/1241821437/es/foto/port%C3%A1til-y-taz%C3%B3n-de-palomitas-de-ma%C3%ADz-vasos-3d-con-luz-de-ne%C3%B3n-rosa-azul-concepto-de-ocio-y.jpg?s=2048x2048&w=is&k=20&c=hP5vjo_eVQeuf_1mmKxnAq-dolcugMhdlA-mg3JmBcw="
-                    alt="" class="w-full h-full object-cover"></a>
+            <div class="h-4/5 inline text-center">
+                <img src="https://media.istockphoto.com/id/1241821437/es/foto/port%C3%A1til-y-taz%C3%B3n-de-palomitas-de-ma%C3%ADz-vasos-3d-con-luz-de-ne%C3%B3n-rosa-azul-concepto-de-ocio-y.jpg?s=2048x2048&w=is&k=20&c=hP5vjo_eVQeuf_1mmKxnAq-dolcugMhdlA-mg3JmBcw="
+                    alt="Banner" class="w-full h-full object-cover opacity-50">
+                <div class="flex flex-col gap-5 relative bottom-[80%]">
+                    <section>
+                        <h1 class="text-center text-5xl font-bold lg:text-6xl xl:text-7xl ">MovieStack</h1>
+                        <h3 class="text-lg md:text-xl lg:text-2xl ">¿Are you ready to dive in? Explore our diverse catalog</h3>
+                    </section>
+                        <a class="flex items-center justify-center m-auto relative top-9 w-52 h-16 border rounded-md shadow-2xl bg-purple-900 opacity-85 hover:opacity-100 hover:bg-purple-800 transition duration-300 font-semibold text-xl" href="./movies.html">Start now</a>
+                </div>
             </div>
-            <section class="text-center text-xl  h-2/5 md:1/2 bg-gray-900 pt-2">
-                <h2 class="text-4xl py-2"><strong>¡De Película en Película!</strong></h2>
-                <p>Navega por Nuestra Página Web para Descubrir una Colección Diversa de Cine, Recomendaciones Personalizadas y Más</p>
-                <p class="py-2"><strong>Haz click en la imagen de arriba </strong></p>
+            <section class="text-center h-2/5 md:1/2 bg-gray-900">
+                <h2 class="text-2xl py-2 font-bold text-purple-200">¡From Movie to Movie!</h2>
+                <p class="text-lg md:text-xl lg:text-2xl">Explore our website to discover a diverse collection of movies, personalized recommendations, and more.</p>
             </section>
         </main>
 
