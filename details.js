@@ -1,46 +1,44 @@
-export function structureCard(movie) {
-    return `<section data-id= "${movie.id}" class= "flex flex-col justify-between items-center w-80  m-2 text-center border-2 border-purple-400 rounded-xl bg-black relative">
-    <img class="object-cover border rounded-xl " src="https://moviestack.onrender.com/static/${movie.image}" alt="">
-    <h3 class="text-lg font-medium py-5">${movie.title}</h3>
-    <h4 class="text-gray-400 font-medium">${movie.tagline}</h4>
-    <p class="text-gray-400 line-clamp-4">${movie.overview}</p>
-    <a href="./details.html?id=${movie.id}"><button class="bg-green-300 w-32 border rounded-md">See more</button></a>
-    <button class="corazones bg-gray-700 absolute right-5 place-items-end w-10 h-10 border rounded-md">FAVS</button>
-    </section>`
-}
+const $main = document.getElementById("main")
+const id = location.search
+const movieId = new URLSearchParams(id).get("id")
+console.log(location.search);
 
-
-export function showCards(movies) {
-    let containerCard = ""
-    movies.forEach((movie) => {
-        containerCard += structureCard(movie)
+fetch(`https://moviestack.onrender.com/api/movies`, {
+    method: "get",
+    headers: {
+        "x-api-key": "0ff70d54-dc0b-4262-9c3d-776cb0f34dbd"
+    }
+}).then(response => response.json())
+    .then(data=> {
+        const movie = data.movies.find((movie) => movie.id == movieId)
+        $main.innerHTML = tableWrapper(movie)
+        const favoritos = new Set(JSON.parse(localStorage.getItem("colorbtn"))) || [];
+        const $favoritosButtons = document.querySelectorAll(".corazones")
+        $favoritosButtons.forEach((btn)=>{
+            const idSection = btn.closest("article").getAttribute("data-id")
+            const isFavorita = favoritos.has(idSection)
+            if (isFavorita) {
+                btn.classList.add("bg-red-300")
+            }
+            btn.addEventListener("click", () => {
+                
+                btn.classList.toggle("bg-red-300")
+                
+                if (btn.classList.contains("bg-red-300")) {
+                    favoritos.add(idSection)
+                } else {
+                    favoritos.delete(idSection)
+                }
+                localStorage.setItem("colorbtn",JSON.stringify([...favoritos]))
+            })
+        })
     })
-    return containerCard
-}
-
-export function filterMovies(movies, name) {
-    return movies.filter((movie) => movie.title.toLowerCase().includes(name.toLowerCase()))
-}
 
 
-
-export function filtrarOption(movies, option) {
-    return movies.filter((movie) => {
-        if (option == `All`) {
-            return true
-        } else {
-            return movie.genres.includes(option)
-        }
-    })
-}
-
-export function fusionFilter(filterMovies, filtrarOption) {
-    return filtrarOption.filter((movie) => filterMovies.includes(movie))
-}
-
-export function tableWrapper(movie) {
-    return `<article class="flex flex-col gap-5 items-center  justify-between md:flex-row md:justify-evenly">
-    <div class="">
+function tableWrapper(movie) {
+    return `<article data-id ="${movie.id}" class="flex flex-col gap-5 items-center  justify-between md:flex-row md:justify-evenly">
+    <div class="relative">
+    <button class="corazones absolute place-items-end w-20 h-10 border rounded-md">FAVS</button>
         <img src="https://moviestack.onrender.com/static/${movie.image}" alt="" class="border rounded-xl mt-10 md:h-80 ">
     </div>
     
@@ -116,26 +114,3 @@ export function tableWrapper(movie) {
     </article>`
 }
 
-export function favorit() {
-    const favoritos = new Set(JSON.parse(localStorage.getItem("colorbtn"))) || [];
-    const $favoritosButtons = document.querySelectorAll(".corazones")
-    $favoritosButtons.forEach((btn)=>{
-        const idSection = btn.closest("section").getAttribute("data-id")
-        const isFavorita = favoritos.has(idSection)
-        if (isFavorita) {
-            btn.classList.add("bg-red-300")
-        }
-        btn.addEventListener("click", () => {
-            
-            btn.classList.toggle("bg-red-300")
-            
-            if (btn.classList.contains("bg-red-300")) {
-                favoritos.add(idSection)
-            } else {
-                favoritos.delete(idSection)
-            }
-            localStorage.setItem("colorbtn",JSON.stringify([...favoritos]))
-            console.log(favoritos);
-        })
-    })
-}
