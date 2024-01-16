@@ -13,7 +13,7 @@
 <body>
 
 
-    <div class="flex flex-col m-auto text-white">
+    <div class="flex flex-col min-h-screen m-auto text-white">
 
         <header class="flex justify-center sm:justify-evenly md:justify-between md:px-20 h-[80px] bg-gray-950">
 
@@ -22,37 +22,38 @@
             </div>
 
 
-            
-                <nav class="flex items-center">
-                    <ul class="flex">
-                        <li class="">
-                            <a href="index.html" class="p-3 text-lg">HOME</a>
-                        </li>
-                        <li class="">
-                            <a href="#"
-                                class="border-2 rounded-md border-purple-900 text-purple-500 p-3 text-lg">MOVIES</a>
-                        </li>
-                        <li class="">
-                            <a href="favs.html" class="p-3 text-lg">FAVS</a>
-                        </li>
-                    </ul>
-                </nav>
-            
+
+            <nav class="flex items-center">
+                <ul class="flex">
+                    <li class="">
+                        <a href="index.html" class="p-3 text-lg">HOME</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="border-2 rounded-md border-purple-900 text-purple-500 p-3 text-lg">MOVIES</a>
+                    </li>
+                    <li class="">
+                        <a href="favoritos.html" class="p-3 text-lg">FAVS</a>
+                    </li>
+                </ul>
+            </nav>
+
 
 
         </header>
-        <main class="flex flex-col lg:flex-col grow h-5/6">
+        <main class="flex flex-col lg:flex-col bg-gray-900 bg grow h-5/6">
 
             <section class="text-center h-2/5 md:1/2 pt-5">
                 <h2 class="text-3xl lg:text-4xl py-2 font-bold text-purple-600">¡From Movie to Movie!</h2>
-                <p class="text-white text-xl lg:text-2xl">Do you have a specific movie in mind? Don't worry, use our search and make your choice a reality</p>
+                <p class="text-white text-xl lg:text-2xl">Do you have a specific movie in mind? Don't worry, use our
+                    search and make your choice a reality</p>
             </section>
 
             <div class="text-center text-xl m-5">
                 <label>Search for your favorite movie:
-                    <input type="text" name="search" id="inputSearchMovies" placeholder="ej: Saw" class="border rounded-md bg-white">
+                    <input type="text" name="search" id="inputSearchMovies" placeholder="ej: Saw"
+                        class="border rounded-md bg-white text-black">
                 </label>
-                <select name="gen" id="genero" class="border rounded-md bg-white">
+                <select name="gen" id="genero" class="border rounded-md bg-white text-black">
                     <option value="All" selected>ALL</option>
                     <option value="Horror">Horror</option>
                     <option value="Mystery">Mystery</option>
@@ -78,16 +79,16 @@
             </div>
         </main>
 
-<!--       <footer class="bg-gray-950 h-[100px]">
+        <footer class="bg-gray-950 h-[100px]">
 
             <h3 class="text-center text-xl pt-5">MindHub - Cohort N°53</h3>
 
-        </footer> -->
+        </footer>
 
     </div>
 
 
-    <script src="data.js"></script>
+    
     <script src="index.js"></script>
 </body>
 

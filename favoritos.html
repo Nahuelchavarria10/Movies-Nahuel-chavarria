@@ -12,7 +12,7 @@
 
 <body>
 
-    <div class="flex flex-col m-auto h-screen text-white">
+    <div class="flex flex-col m-auto min-h-screen text-white">
 
         <header class="flex justify-center sm:justify-evenly md:justify-between md:px-20 h-[80px] bg-gray-950">
 
@@ -38,12 +38,15 @@
 
 
         </header>
-        <main class="flex flex-col items-center justify-evenly bg-gray-900 h-5/6" id="main">
+        <main class="flex flex-col grow items-center justify-evenly bg-gray-900 h-5/6" id="main">
 
+            <h1 class="text-center text-3xl font-semibold lg:text-6xl xl:text-7xl py-10">Favorite <span class="text-blue-600">Movies</span></h1>
+
+            <div id="containerFavs" class="flex flex-wrap justify-center gap-5">
+
+                
+            </div>
             
-
-
-
         </main>
 
         <footer class="bg-gray-950 h-[100px]">
@@ -53,10 +56,8 @@
         </footer>
 
     </div>
-
-
-    <script src="data.js"></script>
-    <script src="favs.js"></script>
+    
+    <script type="module" src="favoritos.js"></script>
 </body>
 
 </html>
